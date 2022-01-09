@@ -1,10 +1,10 @@
 *.foreground: #C6C6C6
-*.background: #1C1C1C
+*.background: #1e272e
 *.cursorColor: #444444
 
 ! black 236 238
-*.color0: #303030
-*.color8: #444444
+*.color0: #576574
+*.color8: #222f3e
 ! red 167
 *.color1: #d75f5f
 *.color9: #d75f5f
@@ -27,7 +27,7 @@
 *.color7: #e4e4e4
 *.color15: #ffffff
 
-URxvt*font: xft:DejaVuSansMono:size=14:antialias=true
+URxvt*font: xft:Inconsolata Nerd Font Mono:style=Medium:size=14:pixelsize=16:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 4

@@ -5,3 +5,6 @@ alias gp='git push'
 
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+alias tmuxa='tmux attach-session -t'
+alias tmuxn='tmux new-session -s'

@@ -1,6 +1,6 @@
 *.foreground: #C6C6C6
 *.background: #1e272e
-*.cursorColor: #444444
+*.cursorColor: #ffffff
 
 ! black 236 238
 *.color0: #576574

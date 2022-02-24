@@ -1,24 +1,38 @@
-local function config(_config)
-	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	}, _config or {})
-end
-
-local lspconfig = require'lspconfig'
-lspconfig.intelephense.setup(config({
-   root_dir = lspconfig.util.root_pattern('.gitmodules'),
-   on_attach = function(client, bufnr)
-       require 'lsp_signature'.on_attach()
-   end,
-}))
-
-lspconfig.phpactor.setup{}
-
-
+local lspconfig = require 'lspconfig'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
-
 local cmp = require 'cmp'
+local lspsignature = require 'lsp_signature'
+local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+lspconfig.intelephense.setup{
+    on_attach = function(client, bufnr)
+        on_attach = lspsignature.on_attach()
+    end,
+    capabilities = capabilities,
+    root_dir = function()
+        return vim.fn.getcwd()
+    end
+}
+
+local phpactor_capabilities = capabilities
+
+phpactor_capabilities.rename = {}
+
+lspconfig.phpactor.setup{
+    on_attach = function(client, bufnr)
+        on_attach = lspsignature.on_attach()
+    end,
+    capabilities = phpactor_capabilities
+}
+
+lspconfig.elmls.setup {
+    on_attach = function(client, bufnr)
+        on_attach = lspsignature.on_attach()
+    end,
+    capabilities = capabilities
+}
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -54,13 +68,32 @@ cmp.setup {
     },
     formatting = {
         format = lspkind.cmp_format({
-            with_text = false,
+            with_text = true,
             maxwidth = 50,
         })
     },
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
     }
 }
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
+
+require("luasnip.loaders.from_vscode").lazy_load({
+	include = nil, -- Load all languages
+	exclude = {},
+})
 

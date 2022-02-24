@@ -17,6 +17,8 @@ autoload -Uz prompt_purification_setup; prompt_purification_setup
 
 autoload -Uz cursor_mode && cursor_mode
 
+source ~/dotfiles/zsh/external/_docker_compose 
+
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
 

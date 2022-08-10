@@ -19,6 +19,9 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'itchyny/lightline.vim'
     Plug 'gruvbox-community/gruvbox'
 
+    " Db
+    Plug 'tpope/vim-dadbod'
+
     " LSP
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'

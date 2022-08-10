@@ -28,3 +28,29 @@ export DOTFILES="$HOME/dotfiles"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+export PATH="$HOME/.local/share:$PATH"
+
+if [ $(command -v "fzf") ]; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+fi
+
+# Push the current directory visited on to the stack.
+setopt AUTO_PUSHD
+
+# Do not store duplicate directories in the stack.
+setopt PUSHD_IGNORE_DUPS
+
+# Do not print the directory stack after using pushd or popd.
+setopt PUSHD_SILENT
+
+source ~/dotfiles/zsh/external/_docker_compose 
+
+# Run startx on login
+if [ "$(tty)" = "/dev/tty1" ];
+then
+    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+fi
+
+# zsh syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

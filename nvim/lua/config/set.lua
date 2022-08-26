@@ -16,7 +16,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.config/undo"
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undo"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -27,6 +27,8 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+vim.opt.clipboard:append("unnamedplus")
 
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1

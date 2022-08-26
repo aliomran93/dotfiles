@@ -12,9 +12,6 @@ ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
 
 ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 
-rm -rf "$XDG_CONFIG_HOME/zsh/external"
-ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
-
 ########
 # nvim #
 ########
@@ -64,14 +61,27 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     rm -rf "$XDG_CONFIG_HOME/X11"
     ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    ####################
-    # Alacritty Mac OS # 
-    ####################
 
-    mkdir -p "$XDG_CONFIG_HOME/alacritty"
-    ln -sf "$DOTFILES/alacritty/alacritty.macos.yml" "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
+    #############
+    # ZSH Linux #
+    #############
+
+    ln -sf "$DOTFILES/zsh/.zsh_profile.linux" "$XDG_CONFIG_HOME/zsh/.zsh_profile"
+
+elif [[ "$OSTYPE" == *"arwin"* ]]; then
+    #############
+    # ZSH MacOS #
+    #############
+
+    ln -sf "$DOTFILES/zsh/.zsh_profile.macos" "$XDG_CONFIG_HOME/zsh/.zsh_profile"
 fi
+
+#############
+# Alacritty # 
+#############
+
+mkdir -p "$XDG_CONFIG_HOME/alacritty"
+ln -sf "$DOTFILES/alacritty/alacritty.yml" "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
 
 ########
 # tmux #

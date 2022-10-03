@@ -2,11 +2,6 @@ local Remap = require('config.keymap')
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 
-local sumneko_root_path = '/home/ali/personal/sumneko'
-local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 -- Setup nvim-cmp.
 local cmp = require('cmp')
 local source_mapping = {
@@ -15,20 +10,43 @@ local source_mapping = {
 	nvim_lua = '[Lua]',
 	path = '[Path]',
 }
+
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
 			-- For `luasnip` user.
-			require('luasnip').lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 		['<C-u>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end,
+        ['<S-Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end,
 	}),
 
 	formatting = {
@@ -54,7 +72,7 @@ local function config(_config)
 	return vim.tbl_deep_extend('force', {
 		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
-			nnoremap('gd', function() vim.lsp.buf.definition() end)
+			nnoremap('<leader>gd', function() vim.lsp.buf.definition() end)
 			nnoremap('K', function() vim.lsp.buf.hover() end)
 			nnoremap('<leader>vws', function() vim.lsp.buf.workspace_symbol() end)
 			nnoremap('<leader>vd', function() vim.diagnostic.open_float() end)
@@ -62,16 +80,17 @@ local function config(_config)
 			nnoremap(']d', function() vim.diagnostic.goto_prev() end)
 			nnoremap('<leader>gca', function() vim.lsp.buf.code_action() end)
 			nnoremap('<leader>gr', function() vim.lsp.buf.references() end)
-			nnoremap('<f12>', function() vim.lsp.buf.rename() end)
+			nnoremap('<F12>', function() vim.lsp.buf.rename() end)
 			inoremap('<C-h>', function() vim.lsp.buf.signature_help() end)
 		end,
 	}, _config or {})
 end
 
-require('lspconfig').phpactor.setup{}
+require('lspconfig').intelephense.setup(config())
+
+require('lspconfig').tsserver.setup(config())
 
 require('lspconfig').sumneko_lua.setup(config({
-	cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
 	settings = {
 		Lua = {
 			runtime = {

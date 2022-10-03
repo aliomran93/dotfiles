@@ -7,6 +7,10 @@ return require('packer').startup(function()
     use('nvim-lua/plenary.nvim')
     use('nvim-lua/popup.nvim')
     use('nvim-telescope/telescope.nvim')
+    use('nvim-telescope/telescope-fzf-native.nvim', {
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    })
+    use('nvim-telescope/telescope-dap.nvim')
 
     -- LSP things
     use('neovim/nvim-lspconfig')
@@ -32,7 +36,8 @@ return require('packer').startup(function()
 
     use('romgrk/nvim-treesitter-context')
 
-    use('mfussenegger/nvim-dap')
     use('rcarriga/nvim-dap-ui')
+    use('mfussenegger/nvim-dap')
     use('theHamsta/nvim-dap-virtual-text')
 end)
+

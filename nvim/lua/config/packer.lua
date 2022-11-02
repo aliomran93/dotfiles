@@ -2,8 +2,9 @@ return require('packer').startup(function()
     use('wbthomason/packer.nvim')
     use('sbdchd/neoformat')
 
-    use('TimUntersberger/neogit')
+    use('lewis6991/gitsigns.nvim')
 
+    -- Telescope
     use('nvim-lua/plenary.nvim')
     use('nvim-lua/popup.nvim')
     use('nvim-telescope/telescope.nvim')
@@ -26,16 +27,22 @@ return require('packer').startup(function()
 
     use('mbbill/undotree')
 
-    -- Colorscheme section
+    -- Colorscheme/styling section
     use('gruvbox-community/gruvbox')
     use('folke/tokyonight.nvim')
+    use({
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    })
 
+    -- Treesitter
     use('nvim-treesitter/nvim-treesitter', {
         run = ':TSUpdate'
     })
-
     use('romgrk/nvim-treesitter-context')
+    use('p00f/nvim-ts-rainbow')
 
+    -- dap for debugging
     use('rcarriga/nvim-dap-ui')
     use('mfussenegger/nvim-dap')
     use('theHamsta/nvim-dap-virtual-text')

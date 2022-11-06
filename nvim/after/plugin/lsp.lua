@@ -79,7 +79,7 @@ local function config(_config)
 			nnoremap(']d', function() vim.diagnostic.goto_prev() end)
 			nnoremap('<leader>gca', function() vim.lsp.buf.code_action() end)
 			nnoremap('<leader>gr', function() vim.lsp.buf.references() end)
-			nnoremap('<F12>', function() vim.lsp.buf.rename() end)
+			nnoremap('<F2>', function() vim.lsp.buf.rename() end)
 			inoremap('<C-h>', function() vim.lsp.buf.signature_help() end)
 		end,
 	}, _config or {})

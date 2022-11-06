@@ -19,19 +19,9 @@ ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 
-ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim"
-
-# Install plugin manager
-[ ! -f "$DOTFILES/nvim/autoload/plug.vim" ] \
-    && curl -fLo "$DOTFILES/nvim/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mkdir -p "$XDG_CONFIG_HOME/nvim/autoload"
-ln -sf "$DOTFILES/nvim/autoload/plug.vim" "$XDG_CONFIG_HOME/nvim/autoload/plug.vim"
-
-# Install (or update) all the plugins
-nvim --noplugin +PlugUpdate +qa
+ln -sf "$DOTFILES/nvim/after" "$XDG_CONFIG_HOME/nvim"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     ######
@@ -74,6 +64,21 @@ elif [[ "$OSTYPE" == *"arwin"* ]]; then
     #############
 
     ln -sf "$DOTFILES/zsh/.zsh_profile.macos" "$XDG_CONFIG_HOME/zsh/.zsh_profile"
+
+    ###############
+    # Yabai MacOS #
+    ###############
+    
+    mkdir -p "$XDG_CONFIG_HOME/yabai"
+    ln -sf "$DOTFILES/yabai/yabairc" "$XDG_CONFIG_HOME/yabai/yabairc"
+
+    ###############
+    # SKHD MacOS #
+    ###############
+    
+    mkdir -p "$XDG_CONFIG_HOME/skhd"
+    ln -sf "$DOTFILES/skhd/yabairc" "$XDG_CONFIG_HOME/skhd/skhdrc"
+
 fi
 
 #############

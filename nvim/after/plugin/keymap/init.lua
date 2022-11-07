@@ -6,7 +6,7 @@ local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 local nmap = Remap.nmap
 
-nnoremap('<leader>u', 'UndotreeShow<CR>')
+nnoremap('<leader>u', ':UndotreeShow<CR>')
 
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")

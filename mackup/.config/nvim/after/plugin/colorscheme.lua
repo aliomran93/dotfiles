@@ -2,14 +2,35 @@ local hl = function(thing, opts)
     vim.api.nvim_set_hl(0, thing, opts)
 end
 
-vim.g.tokyonight_style = 'night'
-vim.cmd('colorscheme tokyonight')
+vim.g.catppuccin_flavour = "macchiato"
 
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_transparent = true
-vim.g.gruvbox_invert_selection = '0'
-vim.opt.background = "dark"
+require("catppuccin").setup({
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        telescope = true,
+        treesitter = true,
+        treesitter_context = true,
+        ts_rainbow = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+				errors = { "underline" },
+				hints = { "underline" },
+				warnings = { "underline" },
+				information = { "underline" },
+			},
+        }
+    }
+});
+
+vim.cmd('colorscheme catppuccin')
 
 hl("SignColumn", {
     bg = "none",

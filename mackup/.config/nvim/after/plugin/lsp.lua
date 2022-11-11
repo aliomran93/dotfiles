@@ -87,6 +87,8 @@ end
 
 require('lspconfig').intelephense.setup(config())
 
+require('lspconfig').phan.setup(config())
+
 require('lspconfig').tsserver.setup(config())
 
 require('lspconfig').sumneko_lua.setup(config({

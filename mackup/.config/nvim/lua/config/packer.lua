@@ -18,6 +18,7 @@ return require('packer').startup(function()
     use('hrsh7th/cmp-nvim-lsp')
     use('hrsh7th/cmp-buffer')
     use('hrsh7th/nvim-cmp')
+	use('tzachar/cmp-tabnine', { run = 'bash ./install.sh' })
     use('onsails/lspkind-nvim')
     use('nvim-lua/lsp_extensions.nvim')
     use('glepnir/lspsaga.nvim')
@@ -28,12 +29,10 @@ return require('packer').startup(function()
     use('mbbill/undotree')
 
     -- Colorscheme/styling section
-    use('gruvbox-community/gruvbox')
-    use('folke/tokyonight.nvim')
-    use({
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    })
+	use('catppuccin/nvim', {as = 'catppuccin'})
+    -- use('gruvbox-community/gruvbox')
+    -- use('folke/tokyonight.nvim')
+    use('nvim-lualine/lualine.nvim')
 
     -- Treesitter
     use('nvim-treesitter/nvim-treesitter', {
@@ -46,5 +45,9 @@ return require('packer').startup(function()
     use('rcarriga/nvim-dap-ui')
     use('mfussenegger/nvim-dap')
     use('theHamsta/nvim-dap-virtual-text')
+
+	-- quality of life
+	use('numToStr/Comment.nvim')
+	use('windwp/nvim-autopairs')
 end)
 

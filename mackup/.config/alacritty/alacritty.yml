@@ -10,7 +10,7 @@ font:
   size: 16.0
 
 window:
-  opacity: 0.8
+  opacity: 0.9
   padding:
     x: 2
     y: 16
@@ -22,7 +22,4 @@ alt_send_esc: false
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
-
-mouse:
-  hide_when_typing: true
 

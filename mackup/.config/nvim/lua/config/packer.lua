@@ -1,8 +1,7 @@
 return require('packer').startup(function()
-    use('wbthomason/packer.nvim')
-    use('sbdchd/neoformat')
+    use('wbthomason/packer.nvim') -- packer
 
-    use('lewis6991/gitsigns.nvim')
+    use('lewis6991/gitsigns.nvim') --show git diff signs
 
     -- Telescope
     use('nvim-lua/plenary.nvim')
@@ -19,19 +18,16 @@ return require('packer').startup(function()
     use('hrsh7th/cmp-buffer')
     use('hrsh7th/nvim-cmp')
 	use('tzachar/cmp-tabnine', { run = 'bash ./install.sh' })
-    use('onsails/lspkind-nvim')
-    use('nvim-lua/lsp_extensions.nvim')
+    use('onsails/lspkind-nvim') -- better cmp menu
     use('glepnir/lspsaga.nvim')
-    use('simrat39/symbols-outline.nvim')
+    use('simrat39/symbols-outline.nvim') -- better symbols
     use('L3MON4D3/LuaSnip')
     use('saadparwaiz1/cmp_luasnip')
-
-    use('mbbill/undotree')
+	use('williamboman/mason.nvim') -- manage lsps and linters
+	use('jose-elias-alvarez/null-ls.nvim') -- support for linters
 
     -- Colorscheme/styling section
 	use('catppuccin/nvim', {as = 'catppuccin'})
-    -- use('gruvbox-community/gruvbox')
-    -- use('folke/tokyonight.nvim')
     use('nvim-lualine/lualine.nvim')
 
     -- Treesitter
@@ -48,6 +44,7 @@ return require('packer').startup(function()
 
 	-- quality of life
 	use('numToStr/Comment.nvim')
-	use('windwp/nvim-autopairs')
+	use('wakatime/vim-wakatime')
+	use('mbbill/undotree')
 end)
 

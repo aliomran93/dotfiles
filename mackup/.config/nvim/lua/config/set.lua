@@ -25,8 +25,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.clipboard:append("unnamedplus")
-
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
 

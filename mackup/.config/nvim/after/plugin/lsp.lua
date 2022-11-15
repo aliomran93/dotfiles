@@ -66,13 +66,15 @@ cmp.setup({
 	},
 
 	sources = {
-		{ name = "cmp_tabnine" },
-
 		{ name = 'nvim_lsp' },
+
+		{ name = "cmp_tabnine" },
 
 		{ name = 'luasnip' },
 
 		{ name = 'buffer' },
+
+		{ name = 'path' },
 	},
 })
 

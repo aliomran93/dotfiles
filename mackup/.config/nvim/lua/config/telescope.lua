@@ -1,6 +1,7 @@
 local actions = require('telescope.actions')
 require('telescope').setup({
     defaults = {
+		file_sorter = require('telescope.sorters').get_fzf_sorter,
         prompt_prefix = ' >',
         color_devicons = true,
 

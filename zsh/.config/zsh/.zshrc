@@ -70,7 +70,7 @@ ZSH_THEME="minimal"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,11 +99,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(zoxide init zsh)"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     source $ZDOTDIR/.zsh_profile_linux
 elif [[ "$OSTYPE" == *"arwin"* ]]; then
     source $ZDOTDIR/.zsh_profile_macos
 fi
+
+eval "$(zoxide init zsh)"
+
+source $ZDOTDIR/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
+ZVM_CURSOR_STYLE_ENABLED=false
 

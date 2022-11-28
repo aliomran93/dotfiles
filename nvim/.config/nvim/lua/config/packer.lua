@@ -16,10 +16,10 @@ return require('packer').startup(function()
     use('neovim/nvim-lspconfig')
     use('hrsh7th/cmp-nvim-lsp')
     use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-path')
     use('hrsh7th/nvim-cmp')
 	use('tzachar/cmp-tabnine', { run = 'bash ./install.sh' })
     use('onsails/lspkind-nvim') -- better cmp menu
-    use('glepnir/lspsaga.nvim')
     use('simrat39/symbols-outline.nvim') -- better symbols
     use('L3MON4D3/LuaSnip')
     use('saadparwaiz1/cmp_luasnip')

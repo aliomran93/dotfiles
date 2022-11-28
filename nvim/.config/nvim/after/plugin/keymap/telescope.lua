@@ -1,7 +1,7 @@
 local Remap = require("config.keymap")
 local nnoremap = Remap.nnoremap
 
-nnoremap("<leader>rg", function() require('telescope.builtin').grep_string() end)
+nnoremap("<leader>rg", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") }) end)
 nnoremap("<leader>fg", function() require('telescope.builtin').git_files() end)
 nnoremap("<Leader>ff", function() require('telescope.builtin').find_files({hidden = true}) end)
 nnoremap("<leader>fb", function() require('telescope.builtin').buffers() end)

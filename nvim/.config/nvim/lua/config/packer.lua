@@ -46,5 +46,6 @@ return require('packer').startup(function()
 	use('numToStr/Comment.nvim')
 	use('wakatime/vim-wakatime')
 	use('mbbill/undotree')
+	use('lukas-reineke/indent-blankline.nvim')
 end)
 

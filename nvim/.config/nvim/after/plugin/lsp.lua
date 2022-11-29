@@ -93,8 +93,6 @@ end
 
 require('lspconfig').intelephense.setup(config())
 
-require('lspconfig').phpstan.setup(config())
-
 require('lspconfig').tsserver.setup(config())
 
 require('lspconfig').sumneko_lua.setup(config({

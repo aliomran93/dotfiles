@@ -9,3 +9,4 @@ if [[ -z $DOTFILES ]]; then
 fi
 
 STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install.sh
+

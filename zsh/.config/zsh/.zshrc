@@ -119,3 +119,4 @@ zvm_after_init_commands+=("bindkey '^[[A' up-line-or-search" "bindkey '^[[B' dow
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*:manuals.*' insert-sections true
 zstyle ':completion:*:man:*' menu yes select
+$ZDOTDIR/dotfiles-updates.sh

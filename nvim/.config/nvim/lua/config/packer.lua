@@ -47,5 +47,6 @@ return require('packer').startup(function()
 	use('wakatime/vim-wakatime')
 	use('mbbill/undotree')
 	use('lukas-reineke/indent-blankline.nvim')
+    use('nvim-tree/nvim-tree.lua')
 end)
 

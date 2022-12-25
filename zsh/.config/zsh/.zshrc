@@ -70,7 +70,7 @@ ZSH_THEME="minimal"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,8 +108,14 @@ fi
 
 eval "$(zoxide init zsh)"
 
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+
 source $ZDOTDIR/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 ZVM_CURSOR_STYLE_ENABLED=false
 
 zvm_after_init_commands+=("bindkey '^[[A' up-line-or-search" "bindkey '^[[B' down-line-or-search")
+
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals.*' insert-sections true
+zstyle ':completion:*:man:*' menu yes select

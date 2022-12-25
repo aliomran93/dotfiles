@@ -1,0 +1,2 @@
+abbr :q="tmux kill-server"
+abbr gc="git checkout"

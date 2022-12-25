@@ -45,3 +45,4 @@ setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/bin:$PATH"

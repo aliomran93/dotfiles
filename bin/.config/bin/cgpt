@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Set variables for the API endpoint and your API key
+ENDPOINT="https://api.openai.com/v1/completions"
+API_KEY="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"
+
+# Define a function to send input to ChatGPT and retrieve the response text
+chatgpt() {
+    local input="$1"
+    local response=$(curl -s -X POST "$ENDPOINT" \
+        -H "Authorization: Bearer $API_KEY" \
+        -H "Content-Type: application/json" \
+        -d "
+            {
+                \"prompt\": \"$input\", 
+                \"max_tokens\": 4000,
+                \"model\": \"text-davinci-003\",
+                \"temperature\": 0
+            }"
+    )
+    echo $response | jq '.choices[]'.text
+}
+
+# Get user input and send it to ChatGPT
+read -p "Ask me a question: " question
+response=$(chatgpt "$question")
+
+# Display the response
+echo -e $response
+

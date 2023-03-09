@@ -1,5 +1,3 @@
-vim.opt.guicursor:append('a:Cursor/lCursor')
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -11,6 +9,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.opt.wrap = false
 
@@ -28,6 +29,14 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.o.clipboard = "unnamedplus"
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
+
+-- Completion menu height
+vim.o.pumheight = 16
+
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
 
@@ -38,7 +47,7 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
 
-vim.opt.colorcolumn = "131"
+vim.opt.colorcolumn = "150"
 
 vim.g.mapleader = " "
 

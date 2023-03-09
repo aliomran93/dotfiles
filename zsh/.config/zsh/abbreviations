@@ -1,2 +1,8 @@
+abbr ''=""
 abbr :q="tmux kill-server"
 abbr gc="git checkout"
+abbr gcm="git commit -m"
+abbr gd="git diff"
+abbr gl="git log"
+abbr gll="git log --oneline"
+abbr gs="git status"

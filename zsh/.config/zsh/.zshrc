@@ -72,6 +72,7 @@ ZSH_THEME="minimal"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -106,9 +107,8 @@ elif [[ "$OSTYPE" == *"arwin"* ]]; then
     source $ZDOTDIR/.zsh_profile_macos
 fi
 
-eval "$(zoxide init zsh)"
 
-source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+eval "$(zoxide init zsh)"
 
 source $ZDOTDIR/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 

@@ -1,3 +1,8 @@
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    source $ZDOTDIR/.zsh_profile_linux
+elif [[ "$OSTYPE" == *"arwin"* ]]; then
+    source $ZDOTDIR/.zsh_profile_macos
+fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -101,11 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    source $ZDOTDIR/.zsh_profile_linux
-elif [[ "$OSTYPE" == *"arwin"* ]]; then
-    source $ZDOTDIR/.zsh_profile_macos
-fi
 
 
 eval "$(zoxide init zsh)"
@@ -116,6 +116,7 @@ ZVM_CURSOR_STYLE_ENABLED=false
 
 zvm_after_init_commands+=("bindkey '^[[A' up-line-or-search" "bindkey '^[[B' down-line-or-search")
 
+zstyle ':completion:*:*:make:*' tag-order targets
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*:manuals.*' insert-sections true
 zstyle ':completion:*:man:*' menu yes select

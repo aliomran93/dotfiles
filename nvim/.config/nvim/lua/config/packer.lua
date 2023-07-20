@@ -62,5 +62,7 @@ return require('packer').startup(function(use)
     use('f-person/git-blame.nvim')
     use('theprimeagen/harpoon')
     use('folke/which-key.nvim')
+    use("github/copilot.vim")
+    use("tpope/vim-fugitive")
 end)
 

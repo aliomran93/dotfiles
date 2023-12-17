@@ -1,4 +1,8 @@
-vim.opt.nu = true
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.errorbells = false
@@ -7,11 +11,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
 vim.opt.smartindent = true
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
 
 vim.opt.wrap = false
 
@@ -22,6 +22,8 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.opt.termguicolors = true
 
@@ -30,9 +32,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.o.clipboard = "unnamedplus"
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
 
 -- Completion menu height
 vim.o.pumheight = 16
@@ -44,10 +43,8 @@ vim.opt.cmdheight = 1
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 
--- Don't pass messages to |ins-completion-menu|.
-vim.opt.shortmess:append("c")
-
 vim.opt.colorcolumn = "150"
 
-vim.g.mapleader = " "
+vim.opt.cursorline = true
 
+vim.g.mapleader = " "

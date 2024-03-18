@@ -21,3 +21,8 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 
+key_bindings:
+  - { key: C, mods: Command|Shift, chars: "\x01\x20" } # enter thumb mode
+  - { key: F, mods: Command|Shift, chars: "\x01\x5b\x2f" } # start tmux search mode
+  - { key: W, mods: Command, chars: "\x01x" } # kill the current pane
+  - { key: T, mods: Command, chars: "\x01c" } # create a new tmux window

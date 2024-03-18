@@ -46,3 +46,4 @@ setopt PUSHD_SILENT
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
+export PATH="$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH"
